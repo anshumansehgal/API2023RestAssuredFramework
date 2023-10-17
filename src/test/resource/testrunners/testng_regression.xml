@@ -8,13 +8,13 @@
 		
 	</listeners>
 
-	<!--<test name="Go Rest API Test">
+	<test name="Go Rest API Test">
 		<parameter name="baseURI" value="https://gorest.co.in"></parameter>
 		
 		<classes>
 			<class name="com.qa.gorest.tests.GetUserTest" />
 		</classes>
-	</test>-->
+	</test>
 	
 	<test name="Go Rest API Creat User Test">
 		<parameter name="baseURI" value="https://gorest.co.in"></parameter>
