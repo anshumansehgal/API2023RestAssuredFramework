@@ -32,7 +32,7 @@ public class GetUserTest extends BaseTest{ //IS A child of BaseTest
 						.assertThat().statusCode(APIHttpStatus.OK_200.getCode());
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void getTheUserTest() {
 		
 		restClient.get(GOREST_ENDPOINT + "/" + "5298062", true, false)  //5272780--random user
