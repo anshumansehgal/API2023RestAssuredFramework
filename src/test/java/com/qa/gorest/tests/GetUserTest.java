@@ -32,14 +32,14 @@ public class GetUserTest extends BaseTest{ //IS A child of BaseTest
 						.assertThat().statusCode(APIHttpStatus.OK_200.getCode());
 	}
 	
-	@Test(enabled = false)
+	@Test()
 	public void getTheUserTest() {
 		
-		restClient.get(GOREST_ENDPOINT + "/" + "5298062", true, false)  //5272780--random user
+		restClient.get(GOREST_ENDPOINT + "/" + "5371756", true, false)  //5272780--random user
 					.then().log().all()
 						.assertThat().statusCode(APIHttpStatus.OK_200.getCode())
 							.and()
-								.body("id", equalTo(5298062));  //add matcher with import static
+								.body("id", equalTo(5371756));  //add matcher with import static
 	}
 	
 	//query parameters/ 2 query parameters
@@ -48,7 +48,7 @@ public class GetUserTest extends BaseTest{ //IS A child of BaseTest
 		
 		//create hashmap for query params-Why HashMap?Because Query params are always in the form key-value pair
 		Map<String, String> queryParams = new HashMap<String, String>();
-		queryParams.put("name", "Ashuu");
+		queryParams.put("name", "Manoj");
 		queryParams.put("status", "active");
 		
 		
