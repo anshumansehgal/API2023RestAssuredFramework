@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="API Sanity Suite" thread-count="1" verbose="4">
+	
+	<listeners>
+		<listener class-name="com.qa.gorest.listeners.ExtentReportListener"></listener>	
+		
+	</listeners>
+
+	<test name="Go Rest API Test">
+		<parameter name="baseURI" value="https://gorest.co.in"></parameter>
+		
+		<classes>
+			<class name="com.qa.gorest.tests.GetUserTest" />
+		</classes>
+	</test>
+
+</suite>
