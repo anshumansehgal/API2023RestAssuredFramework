@@ -17,6 +17,13 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+  
+  <distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://admin:admin123@localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
   <dependencies>
    
@@ -140,14 +147,41 @@
 					<forkCount>3</forkCount>
 					<reuseForks>true</reuseForks>
 					<suiteXmlFiles>
-				<!--	<suiteXmlFile>	<src/test/resource/testrunners/testng_regression.xml</suiteXmlFile>   -->
-						<suiteXmlFile>${suiteXmlFile} </suiteXmlFile> 
+					<suiteXmlFile>src/test/resource/testrunners/testng_regression.xml </suiteXmlFile>
+				<!--		<suiteXmlFile>${suiteXmlFile} </suiteXmlFile>  -->
 					</suiteXmlFiles>
 
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
 
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+			</plugin>
 
 
 		</plugins>
