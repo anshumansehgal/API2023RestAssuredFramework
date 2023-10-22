@@ -60,7 +60,7 @@ pipeline
                 currentBuild.result = 'FAILURE'
             }
             sh "docker start apitesting${BUILD_NUMBER}"
-            sh "docker cp apitesting${BUILD_NUMBER}:/app/target/APIExecutionReport.html ${WORKSPACE}/reports"
+            sh "docker cp apitesting${BUILD_NUMBER}:/app/reports/APIExecutionReport.html ${WORKSPACE}/reports"
             sh "docker rm -f apitesting${BUILD_NUMBER}"
         }
     }
